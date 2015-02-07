@@ -8,8 +8,10 @@
 
 #import "ViewController.h"
 
-@interface ViewController (){
+@interface ViewController () {
     GMSMapView *mapView_;
+    CLLocationManager *locationManager_;
+    GMSCameraPosition *camera;
 }
 
 @end
@@ -18,27 +20,46 @@
 
 - (void)viewDidLoad {
     //[super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
-    //Create a GMSCameraPosition that tells the map to display the coordinate -33.86,151.20 at zoom level 6
-    GMSCameraPosition *camera = [GMSCameraPosition
-                                 cameraWithLatitude:mapView_.myLocation.coordinate.latitude
-                                 longitude:mapView_.myLocation.coordinate.longitude
-                                 zoom:16];
+    /* Matt helped me but it didnt work
+     locationManager_ = [[CLLocationManager alloc] init];
+     [locationManager_ requestWhenInUseAuthorization];
+     locationManager_.delegate = self;
+     [locationManager_ startUpdatingLocation];
+     
+     [mapView_ addObserver:@"self" forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:NULL];
+     */
     
+    if ([CLLocationManager locationServicesEnabled]) {
+        if (locationManager_ == nil) {
+            locationManager_ = [[CLLocationManager alloc] init];
+            locationManager_.delegate = self;
+            if ([locationManager_ respondsToSelector:@selector(requestWhenInUseAuthorization)]){
+                [locationManager_ requestWhenInUseAuthorization];
+            }
+        }
+    }
+    [locationManager_ startUpdatingLocation];
+    
+    camera = [GMSCameraPosition cameraWithLatitude: locationManager_.location.coordinate.latitude
+                                         longitude: locationManager_.location.coordinate.longitude
+                                              zoom:14];
     
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView_.delegate = self;
-    mapView_.myLocationEnabled = YES;
-    NSLog(@"User's location: %@", mapView_.myLocation);
-
+    
     //mapView_.mapType = kGMSTypeSatellite;
     self.view = mapView_;
     mapView_.settings.compassButton = YES;
+    
+    mapView_.myLocationEnabled = YES;
     mapView_.settings.myLocationButton = YES; //if know your location and you press it shows your location
     
+    [self createMarkerToMarkYourPosition];
     
-    
+}
+
+- (void) createMarkerToMarkYourPosition{
     //Create a marker in the center of the map
     GMSMarker *marker = [[GMSMarker alloc] init];
     //marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
