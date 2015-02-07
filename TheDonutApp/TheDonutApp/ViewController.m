@@ -16,6 +16,15 @@
 
 @end
 
+/*
+ Consumer Key       n70vACBi5J3IYJKNLnYskQ
+ Consumer Secret	H8VDPMZXXt_ek9mhmcRVTEsS-fI
+ Token              3zhbwtmitKazrYPq6g_l-brkNz8xnUvE
+ Token Secret       ycCvibom2QcNoaZa6AZY3M2aYkU
+ 
+ */
+
+
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -57,7 +66,12 @@
     
     [self createMarkerToMarkYourPosition];
     
+    NSLog(@"%d",[self isYelpInstalled]);
+    
 }
+
+-(BOOL)isYelpInstalled { return [[UIApplication sharedApplication]
+                                 canOpenURL:[NSURL URLWithString:@"yelp:"]]; }
 
 - (void) createMarkerToMarkYourPosition{
     //Create a marker in the center of the map
