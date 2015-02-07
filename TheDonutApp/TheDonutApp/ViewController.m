@@ -42,9 +42,12 @@
     //Create a marker in the center of the map
     GMSMarker *marker = [[GMSMarker alloc] init];
     //marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
+    marker.icon = [GMSMarker markerImageWithColor:[UIColor blackColor]];
+    //marker.icon = [UIImage imageNamed:@"house"];
+    marker.opacity = 0.6;
     marker.position = camera.target;
     marker.appearAnimation = kGMSMarkerAnimationPop;
-    //marker.title = @"Sydney";
+    marker.title = @"Your position";
     //marker.snippet = @"Australia";
     marker.map = mapView_;
 }
@@ -56,7 +59,7 @@
 
 - (void)mapView:(GMSMapView *)mapView willMove:(BOOL)gesture{
     //gesture = TRUE;
-    //removes the marker
+    //removes all markers
     //[mapView_ clear];
 }
 
