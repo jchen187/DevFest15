@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DF1B2875-D1BC-422C-A1E1-7ACB3E41859E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TheDonutApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8C1DD56B43DB868EEB92C579AF95FEE96B8A9523</key>
+		<string>https://github.com/jchen187/DevFest15.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TheDonutApp/TheDonutApp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8C1DD56B43DB868EEB92C579AF95FEE96B8A9523</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jchen187/DevFest15.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8C1DD56B43DB868EEB92C579AF95FEE96B8A9523</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8C1DD56B43DB868EEB92C579AF95FEE96B8A9523</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DevFest15</string>
+		</dict>
+	</array>
+</dict>
+</plist>
